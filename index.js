@@ -9,14 +9,14 @@ const corsOptions = {
   origin: "http://localhost:5173", // Allow only this origin
   optionsSuccessStatus: 200, // For legacy browser support
 };
-const buildPath = path.join(__dirname, 'client/build')
+const buildPath = path.join(__dirname, 'client/dist')
 require("dotenv").config();
 app.use(bodyParser.json());
 // Use CORS middleware with the specified options
 app.use(cors(corsOptions));
 
 
-app.use(express.static(buildPath))
+app.use(expess.static(buildPath))
 // requiring notes file path
 const notesRouter = require("./routes/notesRouter");
 
