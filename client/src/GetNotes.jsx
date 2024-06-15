@@ -28,7 +28,7 @@ export default function GetNotes() {
   const [todoDataBackup, setTodoDataBackup] = useState([]);
   // fetch Data
   const fetchTodoListData = async () => {
-    const res = await fetch("http://localhost:5000/notes");
+    const res = await fetch("http://localhost:10000/notes");
     const data = await res.json();
     setTodoDataBackup(data);
     setTodoData(data);
@@ -72,7 +72,7 @@ export default function GetNotes() {
     }
 
     // send data
-    const res = await fetch("http://localhost:5000/notes/post", {
+    const res = await fetch("http://localhost:10000/notes/post", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,7 +104,7 @@ export default function GetNotes() {
   // delete notes
   const deleteNotes = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/notes/delete/${id}`, {
+      const response = await fetch(`http://localhost:10000/notes/delete/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -173,7 +173,7 @@ export default function GetNotes() {
     }
 
     // send data
-    const res = await fetch("http://localhost:5000/notes/patch", {
+    const res = await fetch("http://localhost:10000/notes/patch", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -212,7 +212,7 @@ export default function GetNotes() {
     }
 
     // send data
-    const res = await fetch("http://localhost:5000/notes/patch/status", {
+    const res = await fetch("http://localhost:10000/notes/patch/status", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
