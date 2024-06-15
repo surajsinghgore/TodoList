@@ -28,7 +28,7 @@ export default function GetNotes() {
   const [todoDataBackup, setTodoDataBackup] = useState([]);
   // fetch Data
   const fetchTodoListData = async () => {
-    const res = await fetch("http://localhost:10000/notes");
+    const res = await fetch("https://todolist.surajsingh.online/notes");
     const data = await res.json();
     setTodoDataBackup(data);
     setTodoData(data);
@@ -72,7 +72,7 @@ export default function GetNotes() {
     }
 
     // send data
-    const res = await fetch("http://localhost:10000/notes/post", {
+    const res = await fetch("https://todolist.surajsingh.online/notes/post", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,13 +104,16 @@ export default function GetNotes() {
   // delete notes
   const deleteNotes = async (id) => {
     try {
-      const response = await fetch(`http://localhost:10000/notes/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          // You may need to include additional headers like Authorization if needed
-        },
-      });
+      const response = await fetch(
+        `https://todolist.surajsingh.online/notes/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            // You may need to include additional headers like Authorization if needed
+          },
+        }
+      );
       let message = await response.json();
       if (!response.ok) {
         throw new Error("Failed to delete user");
@@ -173,7 +176,7 @@ export default function GetNotes() {
     }
 
     // send data
-    const res = await fetch("http://localhost:10000/notes/patch", {
+    const res = await fetch("https://todolist.surajsingh.online/notes/patch", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -212,13 +215,16 @@ export default function GetNotes() {
     }
 
     // send data
-    const res = await fetch("http://localhost:10000/notes/patch/status", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: id, status: message }),
-    });
+    const res = await fetch(
+      "https://todolist.surajsingh.online/notes/patch/status",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: id, status: message }),
+      }
+    );
     const data = await res.json();
     if (res.status == "400") {
       alertMessageFunc("Bad Request", "warning", data.message);

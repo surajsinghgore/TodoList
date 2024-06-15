@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const PORT = process.env.PORT || 3000;
 const corsOptions = {
-  origin: "http://localhost:10000", // Allow only this origin
+  origin: "https://todolist.surajsingh.online", // Allow only this origin
   optionsSuccessStatus: 200, // For legacy browser support
 };
 const buildPath = path.join(__dirname, 'client/dist')
