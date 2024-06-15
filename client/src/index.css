@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(1, 105, 150);
+}
+header h2 {
+  color: white;
+  user-select: none;
+  padding-left: 1%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-top: 2%;
+}
+
+header img {
+  margin-left: 4%;
+  height: 80px;
+  animation: rotateNscale 4s linear infinite;
+}
+/* image moving animation */
+@keyframes rotateNscale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.insertNote {
+  background-color: rgb(255, 255, 255);
+}
+.insertNote .insertDataForm {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+.insertNote .insertDataForm li {
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.insertNote .insertDataForm li input {
+  width: 400px;
+  outline: none;
+  height: 3vw;
+  padding-left: 2%;
+  border: 1px solid rgb(191, 191, 191);
+}
+.insertNote .insertDataForm li button {
+  background-color: rgb(32, 250, 32);
+  width: 50px;
+  outline: none;
+  font-size: 2vw;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* Hover animation */
+.insertNote .insertDataForm li button:hover {
+  background-color: rgb(12, 203, 12);
+}
+
+/* filerNotes */
+.filerNotes {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.filerNotes li {
+  border: 1px solid rgb(131, 131, 131);
+  margin-right: 1%;
+  width: 120px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+.filerNotes li:hover {
+  color: white;
+  cursor: pointer;
+  background-color: rgb(131, 131, 131);
+}
+.activeFilter {
+  color: white;
+
+  background-color: rgb(131, 131, 131);
+}
+
+/* listShow */
+.listShow {
+  padding-left: 34.5%;
+  margin-top: 3%;
+}
+.listShow li {
+  display: flex;
+  width: 48%;
+  margin-bottom: 0.3%;
+  padding: 10px 10px;
+  border: 1px solid rgb(172, 172, 172);
+}
+
+.listShow li .checkbox {
+  width: 5%;
+  padding-top: 1%;
+}
+
+.listShow li .noteTitle {
+  width: 80%;
+  padding-top: 0.5%;
+
+  font-weight: 600;
+}
+.listShow li .editBtn {
+  width: 5%;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 0;
+  margin-right: 2%;
+  text-align: center;
+  background-color: rgb(55, 132, 247);
+}
+.listShow li .deleteBtn {
+  width: 5%;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 0;
+  text-align: center;
+  background-color: red;
+}
+/* media query */
+/* 0 to 480 */
+@media only screen and (min-device-width: 0px) and (max-device-width: 1200px) {
+  header {
+    padding: 3vw 0;
+  }
+
+  header img {
+    margin-left: 4%;
+    height: 13vw;
+  }
+
+  header h2 {
+    padding-left: 2vw;
+    font-size: 5vw;
+    padding-top: 4vw;
+  }
+
+  .insertNote .insertDataForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+  .insertNote .insertDataForm li {
+    display: flex;
+    margin-bottom: 5%;
+  }
+
+  .insertNote .insertDataForm li input {
+    width: 80vw;
+    font-size: 4vw;
+    height: 10vw;
+  }
+  .insertNote .insertDataForm li button {
+    width: 10vw;
+
+    font-size: 5vw;
+  }
+
+  .filerNotes li {
+    margin-right: 1%;
+    width: 29vw;
+
+    font-size: 3vw;
+    padding: 1vw 0;
+  }
+
+  /* listShow */
+  .listShow {
+    padding-left: 5%;
+    margin-top: 3%;
+  }
+  .listShow li {
+    width: 94%;
+    margin-bottom: 1%;
+    padding: 2vw;
+  }
+
+  .listShow li .checkbox {
+    width: auto;
+
+    font-size: 3.6vw;
+    padding-top: 1%;
+  }
+  .listShow li .checkbox input[type="checkbox"] {
+    width: 3.6vw;
+    height: 3vw;
+  }
+
+  .listShow li .noteTitle {
+    width: 80%;
+    margin-right: 2%;
+    padding-top: 0.8%;
+    height: auto;
+    padding-left: 2%;
+    font-size: 3.5vw;
+    overflow: hidden;
+  }
+  .listShow li .editBtn {
+    width: auto;
+
+    font-size: 3vw;
+    padding: 1vw 1vw;
+    margin-right: 2%;
+  }
+  .listShow li .deleteBtn {
+    width: auto;
+
+    font-size: 3vw;
+    padding: 1vw 1vw;
+  }
+}
