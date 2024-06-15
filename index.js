@@ -1,32 +1,34 @@
-const expess=require('express');
-const app=expess();
-const cors = require('cors') 
-const bodyParser = require('body-parser');
-const dotenv=require("dotenv");
+const expess = require("express");
+const app = expess();
+const path=require('path')
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
+const PORT = process.env.PORT || 3000;
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow only this origin
-    optionsSuccessStatus: 200 // For legacy browser support
-  };
+  origin: "http://localhost:5173", // Allow only this origin
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+const buildPath = path.join(__dirname, 'client/build')
+require("dotenv").config();
+app.use(bodyParser.json());
+// Use CORS middleware with the specified options
+app.use(cors(corsOptions));
 
-  require('dotenv').config()
-  app.use(bodyParser.json())
-  // Use CORS middleware with the specified options
-  app.use(cors(corsOptions));
+
+app.use(express.static(buildPath))
 // requiring notes file path
-const notesRouter=require('./routes/notesRouter')
+const notesRouter = require("./routes/notesRouter");
 
-// handling home page request 
-app.get('/',(req,res)=>{
-    
-    return res.status(200).json({message:"dummy routes"})
-})
-
+// handling home page request
+app.get('*', (req, res) => {
+    res.sendFile(path.join(buildPath, 'index.html'))
+  })
+  
 
 // handle /notes request
-app.use('/notes',notesRouter)
+app.use("/notes", notesRouter);
 
-
-
-app.listen(5000,()=>{
-    console.log('server is running on port 5000')
-})
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
+});
