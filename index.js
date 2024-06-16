@@ -21,7 +21,7 @@ app.use(expess.static(buildPath))
 const notesRouter = require("./routes/notesRouter");
 
 // handling home page request
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'))
   })
   
